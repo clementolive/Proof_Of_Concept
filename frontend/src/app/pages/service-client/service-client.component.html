@@ -8,13 +8,24 @@
             <div class="card-body">
                 <p class="card-title h4">Chat service client</p>
 
-                <div *ngFor="let post of posts$ | async" class="col-12 col-md-6 col-lg-6">
-                    <span class="d-flex col-4 mb-3 m-1">
-                        <div class="m-2">{{post.createdAt | date: 'dd/MM/yyyy'}}</div>
-                        <div class="m-2">{{post.author}}</div>
-                    </span>
-                    <p class="card-text">{{post.content}}</p>
+                <!-- Messages list-->
+                <div *ngFor="let post of posts$ | async" class="card-body bg-info col-12 col-md-6 col-lg-6">
+                        <span class="d-flex col-4 mb-3 m-1">
+                            <div class="m-2">{{post.createdAt | date: 'dd/MM/yyyy'}}</div>
+                            <div class="m-2">{{post.author}}</div>
+                        </span>
+                        <p class="card-text">{{post.content}}</p>
+
                 </div>
+
+                <!-- Send message form -->
+                <form class="form-signin d-flex align-items-center flex-column text-center mt-3" [formGroup]="form" (ngSubmit)="submit()">
+
+                    <textarea class="form-control" id="inputDescription" rows="10" placeholder="Contenu du message" formControlName="content">
+                    </textarea>
+
+                    <button class="btn btn-md btn-primary btn-block" type="submit" [disabled] = "form.invalid">Envoyer</button>
+                </form>
 
             </div>
         </div>
