@@ -16,7 +16,7 @@ export class MessageService {
     return this.httpClient.get<Message[]>(this.pathService);
   }
 
-  public sendMessage(request: MessageRequest):  Observable<Response> {
-    return this.httpClient.post<Response>(this.pathService, request);
+  public sendMessage(request: MessageRequest):  Observable<String> {
+    return this.httpClient.post<String>(this.pathService, request);
   }
 }

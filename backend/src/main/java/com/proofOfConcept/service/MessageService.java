@@ -1,6 +1,7 @@
 package com.proofOfConcept.service;
 
 import com.proofOfConcept.model.Message;
+import com.proofOfConcept.payload.MessageRequest;
 import com.proofOfConcept.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,5 +14,9 @@ public class MessageService {
     MessageRepository messageRepository;
     public List<Message> getMessages() {
         return messageRepository.findAll();
+    }
+
+    public void sendMessage(Message message) {
+        messageRepository.save(message);
     }
 }

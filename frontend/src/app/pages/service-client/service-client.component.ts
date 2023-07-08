@@ -24,7 +24,7 @@ export class ServiceClientComponent {
        [ Validators.required,]
      ],
      author: ['',
-     [ Validators.required,]
+     []
    ]
    });
 
