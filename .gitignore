@@ -97,3 +97,4 @@
 /.idea/modules.xml
 /.idea/Proof_Of_Concept.iml
 /.idea/vcs.xml
+.idea/sonarlint/*
