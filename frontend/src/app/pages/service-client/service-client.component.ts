@@ -46,8 +46,8 @@ export class ServiceClientComponent implements OnInit, OnDestroy{
     this.sendingMessage$ = this.messageService.sendMessage(request).subscribe({
       next: () =>{
           //this.router.navigate(["ServiceClientComponent"]);
-          //this.sendingMessage$ = this.messageService.getMessages().subscribe();
-          window.location.reload();
+          this.messageService.getMessages();
+          //window.location.reload();
       }
     });
   }
