@@ -19,10 +19,7 @@ export class ServiceClientComponent implements OnInit, OnDestroy{
      }
     
   ngOnInit(): void {
-    //throw new Error('Method not implemented.');
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    };
+
   }
 
     // This is subscribed in DOM with async 
@@ -38,16 +35,13 @@ export class ServiceClientComponent implements OnInit, OnDestroy{
    ]
    });
 
- 
 
    public submit(): void{
     const request = this.form.value as MessageRequest;
     request.author = "Utilisateur";
     this.sendingMessage$ = this.messageService.sendMessage(request).subscribe({
       next: () =>{
-          //this.router.navigate(["ServiceClientComponent"]);
-          this.messageService.getMessages();
-          //window.location.reload();
+          this.posts$ = this.messageService.getMessages();
       }
     });
   }

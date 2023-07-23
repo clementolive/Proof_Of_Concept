@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Message } from '../interface/message';
 import { HttpClient } from '@angular/common/http';
 import { MessageRequest } from '../payload/messageRequest';
+import { MessageResponse } from '../interface/messageResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class MessageService {
     return this.httpClient.get<Message[]>(this.pathService);
   }
 
-  public sendMessage(request: MessageRequest):  Observable<String> {
-    return this.httpClient.post<String>(this.pathService, request);
+  public sendMessage(request: MessageRequest):  Observable<MessageResponse> {
+    return this.httpClient.post<MessageResponse>(this.pathService, request);
   }
 }
