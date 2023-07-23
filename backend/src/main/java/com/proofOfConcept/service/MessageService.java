@@ -1,7 +1,6 @@
 package com.proofOfConcept.service;
 
-import com.proofOfConcept.model.Message;
-import com.proofOfConcept.payload.MessageRequest;
+import com.proofOfConcept.entity.Message;
 import com.proofOfConcept.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

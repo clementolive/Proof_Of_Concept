@@ -1,6 +1,7 @@
 package com.proofOfConcept.controller;
 
-import com.proofOfConcept.model.Message;
+import com.proofOfConcept.entity.Message;
+import com.proofOfConcept.model.MessageResponse;
 import com.proofOfConcept.payload.MessageRequest;
 import com.proofOfConcept.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,9 @@ public class MessageController {
     }
 
     @PostMapping("/api/message")
-    public String sendMessage(@RequestBody MessageRequest messageRequest){
+    public MessageResponse sendMessage(@RequestBody MessageRequest messageRequest){
         Message message = new Message(messageRequest.getContent(), messageRequest.getAuthor());
         messageService.sendMessage(message);
-        return "Message sent";
+        return new MessageResponse("Message sent");
     }
 }

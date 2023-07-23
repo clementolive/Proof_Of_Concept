@@ -1,6 +1,6 @@
 package com.proofOfConcept.repository;
 
-import com.proofOfConcept.model.Message;
+import com.proofOfConcept.entity.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.proofOfConcept.model;
+package com.proofOfConcept.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
