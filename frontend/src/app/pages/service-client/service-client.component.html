@@ -9,7 +9,7 @@
 
                 <!-- Messages list-->
                 <div *ngFor="let post of posts$ | async" class="card-body messages"
-                [ngClass]="post.author == 'Utilisateur' ? 'bg-success float-end col-12' : 'bg-info'">
+                [ngClass]="post.author == 2 ? 'bg-success float-end col-12' : 'bg-info'">
                         <span class="d-flex col-4 mb-3 m-1">
                             <div class="m-2">{{post.createdAt | date: 'dd/MM/yyyy'}}</div>
                             <div class="m-2"><strong>{{post.author}}</strong></div>

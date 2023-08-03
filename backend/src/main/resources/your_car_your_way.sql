@@ -45,9 +45,9 @@ DROP TABLE IF EXISTS `message`;
 CREATE TABLE IF NOT EXISTS `message` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(200) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `author` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_message_user` (`user_id`)
+  KEY `fk_message_user` (`author`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -64,10 +64,10 @@ CREATE TABLE IF NOT EXISTS `rent` (
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
   `vehicle_category` varchar(4) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `author` int(11) NOT NULL,
   `agency_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
+  KEY `author` (`author`),
   KEY `fk_agency_rent` (`agency_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -94,14 +94,14 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Contraintes pour la table `message`
 --
 ALTER TABLE `message`
-  ADD CONSTRAINT `fk_message_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_message_user` FOREIGN KEY (`author`) REFERENCES `user` (`id`);
 
 --
 -- Contraintes pour la table `rent`
 --
 ALTER TABLE `rent`
   ADD CONSTRAINT `fk_agency_rent` FOREIGN KEY (`agency_id`) REFERENCES `agency` (`id`),
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `author` FOREIGN KEY (`author`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

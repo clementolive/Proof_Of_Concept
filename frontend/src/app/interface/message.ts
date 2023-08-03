@@ -1,6 +1,6 @@
 export interface Message {
     id: number; 
     content: String; 
-    author: String; 
+    author: number; 
     createdAt: Date; 
 }

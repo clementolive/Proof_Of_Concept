@@ -37,8 +37,8 @@ export class ServiceClientComponent implements OnInit, OnDestroy{
 
 
    public submit(): void{
-    const request = this.form.value as MessageRequest;
-    request.author = "Utilisateur";
+    const request = this.form.value as unknown as MessageRequest;
+    request.author = 2; // This emulates a session system, but implementing sessions and Spring Security would require more than the project recommends.
     this.sendingMessage$ = this.messageService.sendMessage(request).subscribe({
       next: () =>{
           this.posts$ = this.messageService.getMessages();
